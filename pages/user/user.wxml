@@ -1,0 +1,55 @@
+<!--pages/user/user.wxml-->
+<view class="container1">
+  <view class="header">
+    <view class="margin-rg-30">
+      <image src="{{userInfo.avatarUrl || '/images/avatar.png'}}" class="avatar" />
+    </view>
+    <view class="flex flex-flow-col-wrap f28 flex-justify-between">
+      <view class="margin-btm-10">
+        <text class="margin-rg-5">姓名:</text>
+        <text>{{data.userInfo.realName || userInfo.nickName}}</text>
+      </view>
+      <view class="flex">
+        <text class="margin-rg-5">联系方式:</text>
+        <text>{{data.userInfo.phone || '暂无'}}</text>
+        <navigator class="sub-btn" hover-class="none" url="/pages/account/bind/bind">更改</navigator>
+      </view>
+    </view>
+  </view>
+  <view class="card">
+    <view class="card-title f24">关联账号:</view>
+    <view class="card-content">
+      <view class="flex flex-align-center flex-justify-between f36" style="height:80rpx;">
+          <text>{{data.studentInfo.name || '暂无'}}</text>
+          <image src="{{ data.studentInfo.sex == 1 ? '/images/icon-man-wihte.png' : '/images/icon-women-wihte.png'}}"  class="icon-man" />
+          <text class="flex-empty"></text>
+          <text class="card-time flex-self-start f32">{{data.studentInfo.gradeTime}}</text>
+      </view>
+      <view class="card-table flex">
+        <view>
+          <text>学历</text>
+          <text>本科</text>
+        </view>
+        <view>
+          <text>专业</text>
+          <text>{{data.studentInfo.major || '暂无'}}</text>
+        </view>
+        <view>
+          <text>班级</text>
+          <text>{{data.studentInfo.classes || '暂无'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="height:12rpx;width:100%;background-color:#e8f0f0;margin:20rpx 0;"></view>
+  <navigator hover-class="none" url="/pages/user/info/info" class="list-item flex flex-align-center flex-justify-between">
+    <image src="/images/icon-info.png" class="icon-info" />
+    <text class="f32 c666">学生信息</text>
+    <text class="flex-empty"></text>
+    <image src="/images/icon-arrow-right.png" class="icon-arrow-right" />
+  </navigator>
+  <view bindtap="logout" class="list-item flex flex-align-center">
+    <image src="/images/icon-del.png" class="icon-del" />
+    <text class="f32 c666">注销登录</text>
+  </view>
+</view>

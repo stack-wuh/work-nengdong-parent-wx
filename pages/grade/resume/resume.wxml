@@ -1,0 +1,13 @@
+<!--pages/grade/resume/resume.wxml-->
+<view class="container1">
+  <view wx:for="{{3}}">
+    <view class="title">
+      <text class="f32 c333 margin-rg-80">2017年-2018年</text>
+      <text class="f32 c333">校学生会主席</text>
+    </view>
+    <view class="content" style="padding-bottom:30rpx;padding-top:20rpx;">
+      <view class="f24 c999">工作内容</view>
+      <view class="f28 c666">工作内容描述工作内容描述工作内容描述工作内容描述工作内容描述工作内容描述工作内容描述内容描述工作内容描述</view>
+    </view>
+  </view>
+</view>

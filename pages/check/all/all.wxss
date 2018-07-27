@@ -1,0 +1,73 @@
+/* pages/check/all/all.wxss */
+.container{
+  height:100%;
+}
+.header{
+  width:100%;
+  padding:30rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.picker-btn{
+  display: inline-block;
+  width:70rpx;
+  height:32rpx;
+  margin-left:20rpx;
+  text-align: center;
+  background-color: #FBA02A;
+  border-radius: 16rpx;
+}
+.my-chart{
+  width:300rpx;
+  height:300rpx;
+  overflow: hidden;
+  border:1px solid #eee;
+}
+.my-table{
+  flex:1;
+  height:300rpx;
+  border:1px solid #eee;
+  border-left: none;
+}
+.my-table .tr{
+  display: flex;
+  justify-content: space-between;
+  height:150rpx;
+  font-size: 24rpx;
+  box-sizing: border-box;
+}
+.my-table .td{
+  display: flex;
+  flex:1;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  border:1px solid #eee;
+}
+.content{
+  width:100%;
+  padding:30rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.table{
+  display: flex;
+  flex-flow: column wrap;
+  /* border:1px solid #eee; */
+}
+.table .tr{
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.table .th,
+.table .td{
+  flex:1;
+  height:80rpx;
+  line-height:80rpx;
+  text-align:center;
+  color: #999;
+  font-size: 28rpx;
+  border:1px solid #eee;
+}

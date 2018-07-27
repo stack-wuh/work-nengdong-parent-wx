@@ -1,0 +1,27 @@
+/* pages/loading/loading/loading.wxss */
+.container1{
+  position: fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+}
+.container1 .loading{
+  position: relative;
+  top:-180rpx;
+  width:750rpx;
+  height:1334rpx;
+}
+.container1 .content{
+  position: absolute;
+  bottom:80rpx;
+  width: 750rpx;
+  height:180rpx;
+  box-sizing: border-box;
+}
+.content .my-button{
+  width:690rpx;
+  margin:0 auto;
+  color: #fff;
+  background-color: #00998d;
+}

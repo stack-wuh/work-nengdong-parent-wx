@@ -1,0 +1,52 @@
+/* pages/grade/grading/grading.wxss */
+.container1{
+  height:100%;
+  padding: 30rpx;
+  box-sizing:border-box;
+}
+.nav-title{
+  width:690rpx;
+  height:40rpx;
+  margin:0 auto;
+  margin-bottom:30rpx;
+  font-size: 32rpx;
+  text-align:center;
+  line-height:40rpx;
+  background-image: url(http://pc3b73iy4.bkt.clouddn.com/background/bg-line.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 591rpx 25rpx;
+}
+.list-item{
+  padding:20rpx 40rpx;
+  margin:30rpx 0;
+  background-image: url(http://pc3b73iy4.bkt.clouddn.com/background/bg-slant.png);
+}
+.list-item .item{
+  padding-bottom:15rpx;
+  border-bottom:1px solid #eee;
+}
+.list-item .item:not(:first-of-type){
+  padding-top:15rpx;
+}
+.list-item .item:last-of-type{
+  border-bottom:none;
+}
+.my-table{
+  display:flex;
+}
+.my-table > view{
+  flex:1;
+  display:flex;
+  flex-flow: column wrap;
+  align-items: center;
+  line-height:1.5;
+}
+.my-table > view > text:first-child{
+  color: #999;
+  font-size:24rpx;
+}
+.my-table > view > text:nth-child(2){
+  color: #666;
+  font-size: 28rpx;
+}

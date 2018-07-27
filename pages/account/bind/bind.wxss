@@ -1,0 +1,4 @@
+/* pages/account/bind/bind.wxss */
+.container{
+  height: 100%;
+}

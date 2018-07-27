@@ -1,0 +1,7 @@
+<!--pages/loading/loading/loading.wxml-->
+<view class="container1">
+  <image src="/images/loading.png" class="loading" />
+  <view class="content">
+      <button  bindgetuserinfo="bindgetUserInfo" open-type="getUserInfo" class="my-button">微信用户一键登录</button>
+  </view> 
+</view>

@@ -1,0 +1,19 @@
+/* pages/concat/feedback/feedback.wxss */
+.container1{
+  padding:30rpx 50rpx;
+  box-sizing: border-box;
+}
+.my-textarea{
+  width: 100%;
+  height:330rpx;
+  padding:10rpx 20rpx;
+  font-size: 28rpx;
+  color: #666;
+  background-color: #f4f4f4;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+  box-sizing: border-box;
+}

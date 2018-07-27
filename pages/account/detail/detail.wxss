@@ -1,0 +1,107 @@
+/* pages/account/detail/detail.wxss */
+.container{
+  height:100%;
+  /* padding:20rpx; */
+}
+.icon-message{
+  width:40rpx;
+  height:40rpx;
+  margin-right:10rpx;
+}
+.top{
+  width:100%;
+  padding:20rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.header{
+  position: relative;
+  width:710rpx;
+  height:148rpx;
+  padding:15rpx;
+  border:1px solid #00988C;
+  box-sizing: border-box;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.header .title{
+  flex:1;
+  line-height:1.7;
+}
+.row1{
+  position: absolute;
+  right:-3rpx;
+  top:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 6rpx 6rpx 0 0;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.row2{
+  position: absolute;
+  left:-3rpx;
+  top:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 6rpx 0 0 6rpx;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.row3{
+  position: absolute;
+  left:-3rpx;
+  bottom:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 0 0 6rpx 6rpx;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.row4{
+  position: absolute;
+  right:-3rpx;
+  bottom:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 0 6rpx 6rpx 0;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.top .tips-title,
+.btm .tips-title{
+  margin:45rpx 0 30rpx 0;
+  font-size: 32rpx;
+  color: #2A2A2A;
+  box-sizing: border-box;
+}
+
+.msg{
+  height:108rpx;
+  margin:0 15rpx;
+  margin-top:10rpx;
+  padding:10rpx 20rpx;
+  background-color: #F4F4F4;
+  color: #999;
+  font-size: 24rpx;
+  box-sizing: border-box;
+}

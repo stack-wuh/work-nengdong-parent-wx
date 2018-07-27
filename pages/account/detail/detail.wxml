@@ -1,0 +1,54 @@
+<!--pages/account/detail/detail.wxml-->
+<view class="container">
+  <view class="top">
+    <view class="header flex">
+      <image src="/images/icon-message.png" class="icon-message" />
+      <view class="c999 f24 title">请您在使用家校互动系统家长端时,先绑定孩子的个人信息,为方便操作,我们为您提供了两种绑定方式,您可以任选其一进行操作。</view>
+      <view class="row row1"></view>
+      <view class="row row2"></view>
+      <view class="row row3"></view>
+      <view class="row row4"></view>
+    </view>
+    <view class="tips-title">
+      <view>方法一、扫码关联学生信息</view>
+      <view class="btn-area">
+        <view class="btn flex flex-align-center flex-justify-center">
+          <image src="/images/icon-scan.png" style="width:50rpx;height:50rpx;margin-right:25rpx;" />
+          <text>扫一扫</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btm">
+    <view class="tips-title">
+      <view class="margin-btm-30">方法二、绑定账号信息关联</view>
+      <form bindsubmit="formSubmit">
+        <view class="form-group flex">
+          <text class="label">关联账号：</text>
+          <input name="studentName" placeholder="请输入您孩子的姓名" />
+        </view>
+        <view class="form-group flex">
+          <text class="label">学号：</text>
+          <input name="studentIdNum" placeholder="请输入您孩子的学号" />
+        </view>
+        <view class="form-group flex">
+          <text class="label">身份证号：</text>
+          <input name="schoolNum" placeholder="请输入您孩子的身份证号" />
+        </view>
+        <block wx:if="{{false}}">
+          <view class="msg flex flex-align-center">
+            未搜索到您孩子的信息,请补充您孩子学校的全称,系统会再次进行匹配
+          </view>
+          <view class="form-group flex">
+            <text class="label">学校：</text>
+            <input placeholder="请输入您孩子的学校名称" />
+          </view>
+        </block>
+
+        <view class="btm-area">
+          <button formType="submit" class="btn">提交</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

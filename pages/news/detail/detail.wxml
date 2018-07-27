@@ -1,0 +1,12 @@
+<!--pages/news/detail/detail.wxml-->
+<view class="container bg-fff">
+  <view class="header">
+    <view class="f32 c333">{{info.title}}</view>
+    <view class="f28 c666 ">{{info.abstractt}}</view>
+    <view class="f24 c999">{{info.pubtime}}</view>
+  </view>
+  <view class="context">
+    <import src="/utils/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+  </view>
+</view>

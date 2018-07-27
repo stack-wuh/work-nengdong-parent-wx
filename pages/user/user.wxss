@@ -1,0 +1,107 @@
+/* pages/user/user.wxss */
+.container1{
+  padding:30rpx;
+  box-sizing: border-box;
+}
+.header{
+  display: flex;
+  align-items: center;
+  width:100%;
+  height:120rpx;
+  box-sizing: border-box;
+}
+.avatar{
+  width: 90rpx;
+  height:90rpx;
+  vertical-align: bottom;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.card{
+  width:100%;
+  height:283rpx;
+  padding:40rpx 0;
+  margin-top:20rpx;
+  background:linear-gradient(to right,rgb(27, 216, 200),#00998D);
+  box-sizing:border-box;
+  border-radius: 10rpx;
+  -webkit-border-radius: 10rpx;
+  -moz-border-radius: 10rpx;
+  -ms-border-radius: 10rpx;
+  -o-border-radius: 10rpx;
+}
+.card .card-title{
+  margin-left:40rpx;
+  color: #fff;
+}
+.card .card-content{
+  margin-left:90rpx;
+  color: #fff;
+}
+.icon-man{
+  width:25rpx;
+  height:26rpx;
+  margin-left:10rpx;
+}
+.card-time{
+  padding:2rpx 20rpx;
+  border-top-left-radius: 25rpx;
+  border-bottom-left-radius: 25rpx;
+  background:linear-gradient(to right,#18C8BA ,#00998D );
+}
+.card-table{
+  margin-left:-80rpx;
+}
+.card-table > view{
+  flex:1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  height:80rpx;
+  border-right:1rpx solid #eee;
+}
+.card-table > view:last-of-type{
+  border-right:none;
+}
+.card-table > view > text:first-child{
+  font-size: 24rpx;
+}
+.card-table > view  > text:nth-child(2){
+  font-size: 32rpx;
+}
+.icon-info{
+  width:28rpx;
+  height:28rpx;
+  margin-right: 20rpx;
+}
+.icon-del{
+  width:33rpx;
+  height:29rpx;
+  margin-right:20rpx;
+}
+.icon-arrow-right{
+  width:10rpx;
+  height:19rpx;
+}
+.list-item{
+  height:80rpx;
+  border-bottom:1px solid #eee;
+}
+.list-item:last-child{
+  border-bottom:none;
+}
+.sub-btn{
+  margin-left:40rpx;
+  padding:2rpx 10rpx;
+  background-color:#FBA02A;
+  color: #fff;
+  border-radius: 16rpx;
+  -webkit-border-radius: 16rpx;
+  -moz-border-radius: 16rpx;
+  -ms-border-radius: 16rpx;
+  -o-border-radius: 16rpx;
+}

@@ -1,0 +1,21 @@
+<!--pages/concat/teacher/teacher.wxml-->
+<view class="container">
+  <view style="width:100%;height:300rpx;background-color:#00998d;"></view>
+  <view class="content">
+    <view class="avatar-wrap">
+        <view class="avatar-box">
+          <image src="/images/avatar.png" class="avatar" />
+        </view>
+        <view class="avatar-detail flex flex-align-center flex-justify-center">
+          <text class="f28 c333 margin-rg-10">用户名</text>
+          <image src="/images/icon-man.png" class="icon-man" />
+        </view>
+    </view>
+    <view class="list">
+      <view class="f28 c999 list-item" wx:for="{{list}}" wx:key="{{index}}">
+        <text class="margin-rg-10 item-title">{{item.name}}:</text>
+        <text>{{item.value}}</text>
+      </view>          
+    </view>
+  </view>
+</view>

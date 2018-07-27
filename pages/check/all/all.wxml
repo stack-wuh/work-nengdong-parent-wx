@@ -1,0 +1,40 @@
+<!--pages/check/all/all.wxml-->
+<view class="container">
+  <view class="header margin-btm-15">
+    <view class="flex flex-align-center flex-justify-between  margin-btm-15">
+      <text class="f32 c333">考勤汇总</text>
+      <picker bindchange="pickerChange" range="{{gradeList}}" range-key="{{index}}" value="{{index}}">
+        <view class="picker">
+          <text class="f24 c333">{{search.semester || '请选择学期'}}</text>
+          <text class="f24 cfff picker-btn">更改</text>
+        </view>
+      </picker>
+    </view>
+    <view class="flex flex-align-center">
+      <canvas canvas-id="rings" class="my-chart"></canvas>
+      <view class="my-table ">
+        <view class="tr" wx:for="{{overview}}" wx:key="{{index}}">
+          <view class="td" wx:for="{{item}}" wx:for-item="list" wx:key="{{index}}">
+            <text class="c999 f24">{{list.name}}</text>
+            <text class="c333 f24">{{list.value || 0}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="f32 c333 margin-btm-15">详情列表</view>
+    <view class="table">
+      <view class="tr">
+        <view class="th">考试类型</view>
+        <view class="th">出勤率</view>
+        <view class="th">考勤次数</view>
+        <view class="th">未签到次数</view>
+      </view>
+      <view class="tr" wx:for="{{tables}}" wx:key="{{index}}">
+        <view class="td">{{item.name}}</view>
+        <view class="td" wx:for="{{item.list}}" wx:for-item="list" wx:key="{{index}}">{{list.prop == 'rate' ? list.data + '%' : list.data}}</view>
+      </view>
+    </view>
+  </view>
+</view>

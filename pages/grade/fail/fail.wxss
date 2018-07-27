@@ -1,0 +1,112 @@
+/* pages/grade/fail/fail.wxss */
+.container{
+  height:100%;
+  background-color: #fff;
+}
+.top{
+  width:100%;
+  padding:20rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.header{
+  position: relative;
+  width:710rpx;
+  height:108rpx;
+  padding:15rpx;
+  border:1px solid #00988C;
+  box-sizing: border-box;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.header .title{
+  flex:1;
+  line-height:1.7;
+}
+.row1{
+  position: absolute;
+  right:-3rpx;
+  top:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 6rpx 6rpx 0 0;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.row2{
+  position: absolute;
+  left:-3rpx;
+  top:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 6rpx 0 0 6rpx;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.row3{
+  position: absolute;
+  left:-3rpx;
+  bottom:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 0 0 6rpx 6rpx;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.row4{
+  position: absolute;
+  right:-3rpx;
+  bottom:-3rpx;
+  padding:10rpx;
+  border-color: #00988C;
+  border-style: solid;
+  border-width: 0 6rpx 6rpx 0;
+  border-radius: 4rpx;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+
+.nav-title{
+  width:690rpx;
+  height:40rpx;
+  margin:0 auto;
+  margin-bottom:30rpx;
+  font-size: 32rpx;
+  text-align:center;
+  line-height:40rpx;
+  background-image: url(http://pc3b73iy4.bkt.clouddn.com/background/bg-line.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 591rpx 25rpx;
+}
+.list{
+  width:100%;
+  box-sizing: border-box;
+}
+.list .item{
+  padding:0rpx 60rpx;
+}
+.list .item .list-item{
+  padding:10rpx 0;
+  border-bottom:1px solid #eee;
+}
+.list .item .list-item:last-of-type{
+  border-bottom:none;
+}

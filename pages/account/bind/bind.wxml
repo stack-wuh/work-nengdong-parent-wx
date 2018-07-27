@@ -1,0 +1,18 @@
+<!--pages/account/bind/bind.wxml-->
+<view class="container .bg-fff">
+  <form style="width:100%;" bindsubmit="handleSubmit">
+    <view style="width:100%;">
+      <view class="form-group">
+        <text class="label">姓名：</text>
+        <input name="realName" placeholder="请输入您的姓名" />
+      </view>
+      <view class="form-group">
+        <text class="label">联系方式：</text>
+        <input name="phone" placeholder="请输入您的联系方式" />
+      </view>
+    </view>
+  <view class="btn-area">
+    <button form-type="submit" class="btn">提交</button>
+  </view>
+  </form>
+</view>

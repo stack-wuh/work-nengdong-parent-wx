@@ -1,0 +1,125 @@
+<!--pages/grade/index/index.wxml-->
+<view class="container1">
+  <view class="header flex flex-align-center flex-justify-between">
+    <view data-current='1' data-index="first" bindtap="tap" class="{{current==1?'cactive':''}}">期末成绩
+      <view wx:if="{{current == 1}}"></view>
+    </view>
+    <view data-current="2" data-index="second" bindtap="tap" class="{{current==2?'cactive':''}}">等级证书
+      <view wx:if="{{current == 2}}"></view>
+    </view>
+    <view data-current="3" data-index="third" bindtap="tap" class="{{current==3?'cactive':''}}">个人履历
+      <view wx:if="{{current == 3}}"></view>
+    </view>
+    <view data-current="4" data-index="fourth" bindtap="tap" class="{{current==4?'cactive':''}}">告家长书
+      <view wx:if="{{current == 4}}"></view>
+    </view>
+  </view>
+  <view style="height:130rpx;"></view>
+  <view>
+    <scroll-view scroll-y class="my-scroll" style="height:{{height+200 || 503}}px;" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-with-animation="{{true}}">
+      <view class="first">
+        <view class="top flex flex-align-center flex-justify-between">
+          <view class="f28 cfff tips">软件工程1503</view>
+          <picker >
+            <view class="f24 c333 flex flex-align-center my-picker">
+              <text class="margin-rg-10">请选择</text>
+              <text class="tips1">更改</text>
+            </view>
+          </picker>
+        </view>
+        <view class="flex flex-align-center flex-justify-center bg-img margin-btm-30">
+          <image class="bg-list1" src="/images/bg-list1.png"  />
+        </view>
+        <view class="f24 text-center margin-btm-30">王嘉尔</view>
+        <view class="my-table flex flex-align-center flex-justify-around margin-btm-30">
+          <view>
+            <text>平均成绩</text>
+            <text>98</text>
+          </view>
+          <view>
+            <text>班级排名</text>
+            <text>2</text>
+          </view>
+          <view>
+            <text>年级排名</text>
+            <text>5</text>
+          </view>
+        </view>
+        <view id="first" class="nav-title text-center f32 margin-btm-30">成绩详情</view>
+        <view class="list" wx:for="{{4}}">
+          <view class="flex flex-align-center margin-btm-30">
+            <text class="f32 title t-color t-bg">大学英语</text>
+            <view>
+              <image src="/images/icon-sad.png" class="icon-sad" />
+            </view>
+          </view>
+          <view class="my-table flex margin-btm-30">
+            <view>
+              <text>考试成绩</text>
+              <text>98</text>
+            </view>
+            <view>
+              <text>所得学分</text>
+              <text>4</text>
+            </view>
+            <view>
+              <text>是否及格</text>
+              <text>是</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style="width:647rpx;height:12rpx;background-color:#E8F0F0;margin:0 auto;margin-bottom:30rpx;"></view>
+      <view class="nav-title">等级证书</view>
+      <view id="second" class="second">
+        <view class="list" wx:for="{{3}}" wx:key="{{index}}">
+          <view class="flex flex-align-center margin-top-30 margin-btm-30">
+            <text class="f32 title">英语四级证书</text>
+            <text class="f28 sta-ok">已取得</text>
+            <text class="f28 sta-no">暂未取得</text>
+          </view>
+          <view class="list-item" wx:for="{{2}}">
+              <view class="f28 margin-lf-30">教育学</view>
+              <view class="my-table flex">
+                <view>
+                  <text>考试成绩</text>
+                  <text>98</text>
+                </view>
+                <view>
+                  <text>所得学分</text>
+                  <text>4</text>
+                </view>
+                <view>
+                  <text>是否及格</text>
+                  <text>是</text>
+                </view>
+              </view>
+          </view>
+        </view>
+      </view>
+       <view style="width:647rpx;height:12rpx;background-color:#E8F0F0;margin:0 auto;margin-bottom:30rpx;"></view>
+      <view class="nav-title">个人履历</view>
+      <view id="third" class="third">
+        <view class="list-item flex flex-flow-col-wrap margin-btm-30" wx:for="{{3}}">
+          <view class="f28 title">奖励记录</view>
+          <view>
+            <view>
+              <text class="c999 f28">原因:</text>
+              <text class="f28 c999">这里就是原因</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-title">告家长书</view>
+      <view id="fourth" class="fourth">
+        这里是告家长书
+        <view style="height:300rpx;"></view>
+        <view class="btm-box">
+          <image src="/images/bg-btm.png" class="bg-btm" />
+          <image src='/images/bg-btm1.png' class="bg-btm1" />
+          <text class="btm-text">武汉理工大学计算机科学与技术学院</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

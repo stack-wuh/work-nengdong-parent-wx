@@ -1,0 +1,28 @@
+/* pages/grade/resume/resume.wxss */
+.container1{
+  padding:60rpx 50rpx;
+  box-sizing:border-box;
+}
+.content{
+  height:100%;
+  padding:0 20rpx;
+  border-left: 1px dotted #00998d;
+}
+.title{
+  position: relative;
+  padding-left:20rpx;
+}
+.title::after{
+  content:'';
+  position: absolute;
+  left:-12rpx;
+  top:15rpx;
+  padding:15rpx;
+  background:radial-gradient(#00988C,#fff,rgba(0,152,140,.5));
+  border-radius: 50%;
+  box-sizing: border-box;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

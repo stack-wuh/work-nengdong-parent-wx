@@ -1,0 +1,46 @@
+<!--pages/grade/fail/fail.wxml-->
+<view class="container1">
+  <view class="top">
+    <view class="header flex">
+      <image src="/images/icon-message.png" class="icon-message" />
+      <view class="c999 f24 title">不及格过多会影响正常毕业,忘各位家长知悉,对学生的考试成绩保持高度关注.</view>
+      <view class="row row1"></view>
+      <view class="row row2"></view>
+      <view class="row row3"></view>
+      <view class="row row4"></view>
+    </view>
+  </view>
+  <view class="list">
+    <view class="nav-title">本学年新增</view>
+    <view class="item margin-btm-15">
+      <view class="list-item" wx:for="{{2}}">
+        <view>
+          <text class="f24 c999 margin-rg-10">课程名称:</text>
+          <text class="f28 c666">C++程序设计</text>
+        </view>
+        <view>
+          <text class="f24 c999 margin-rg-10">考试成绩:</text>
+          <text class="f28 c666">50</text>
+        </view>
+      </view>
+    </view>
+    <view style="width:90%;height:15rpx;background-color:#E8F0F0;margin:0 auto;margin-bottom:20rpx;"></view>
+    <view class="nav-title ">历史记录</view>
+    <view class="item margin-btm-15">
+      <view class="list-item" wx:for="{{10}}">
+        <view>
+          <text class="f24 c999 margin-rg-10">课程名称:</text>
+          <text class="f28 c666">C++程序设计</text>
+        </view>
+        <view>
+          <text class="f24 c999 margin-rg-10">考试成绩:</text>
+          <text class="f28 c666">50</text>
+        </view>
+        <view>
+          <text class="f24 c999 margin-rg-10">考试时间:</text>
+          <text class="f28 c666">大一上学期</text>
+        </view>
+      </view>
+    </view>  
+  </view>
+</view>

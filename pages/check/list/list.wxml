@@ -1,0 +1,71 @@
+<!--pages/check/list/list.wxml-->
+<view class="container">
+  <view style="width:100%;height:100rpx;background-color:#00998d;"></view>
+  <view class="header flex flex-flow-col-wrap flex-align-stretch flex-self-center">
+    <picker bindchange="pickerChange" range="{{gradeList}}" range-key="{{index}}">
+      <view class="picker flex flex-align-center flex-justify-center margin-btm-15" >
+        <text class="f24 c333">{{search.semester || '请选择学期'}}</text>
+        <text class="f24 cfff btns">更改</text>
+      </view>
+    </picker>
+    <view class="my-chart flex flex-align-center flex-justify-center">
+      <canvas canvas-id="rings" style="height:400rpx;"></canvas>
+    </view>
+    <view class="flex flex-align-center flex-justify-between">
+      <view class="card-item">
+        <text class="cfff f36">迟到</text>
+        <text class="cfff f32">{{overviewData.later}}次</text>
+      </view>
+      <view class="card-item">
+        <text class="cfff f36">请假</text>
+        <text class="cfff f32">{{overviewData.leave}}次</text>
+      </view>
+      <view class="card-item">
+        <text class="cfff f36">旷课</text>
+        <text class="cfff f32">{{overviewData.out}}次</text>       
+      </view>
+    </view>
+    <view wx:if="{{overviewData.out > 10}}" class="msg flex flex-align-start flex-justify-between">
+      <image src="/images/icon-message.png" class="icon-message margin-rg-10" />
+      <view class="c999 f24 flex-empty">该同学最近旷课次数较多,在师生中均造成了不良影响,请家长及时跟孩子取得联系.</view>
+    </view>
+  </view>
+  <text class="f28 c666 title">详情列表</text>
+  <view class="list">
+    <view wx:for="{{data}}" wx:if="{{item.data.list.length > 0}}" wx:key="{{index}}" class="list-item flex flex-flow-col-wrap">
+      <view class="tips f32 cfff .later" style="{{item.style}}" >{{item.title}}</view>
+      <view class="item-list" style="{{ index == 0 ? 'border-top:none' : ''}}" wx:for="{{item.data.list}}" wx:for-item="list" wx:key="{{index}}">
+        <view class="f24 c999">{{list.fomTime}}</view>
+        <view class="flex flex-align-center margin-top-15 item-content">
+          <text class="c999 margin-rg-15">课程: </text>
+          <text>{{list.title}}</text>
+          <text style="flex:.8;"></text>
+          <text class="c999 margin-rg-15">发起签到: </text>
+          <text>{{list.teacherName}}</text>
+        </view>
+        <view wx:if="{{item.title == '请假'}}" class="flex flex-align-center item-btm margin-top-10">
+          <text class="c999 margin-rg-15">原因:</text>
+          <text class="text-over detail">{{list.leave.reason}}</text>
+          <block wx:if="{{list.leave.reason.length > 20}}">
+            <text data-info="{{list}}" bindtap="handleClickChangeDetail" class="btm-btn margin-rg-10">查看详情</text>
+            <image src="/images/icon-arrow-right-yellow.png" class="icon-arrow-right-yellow" />
+          </block>
+        </view>
+      </view>
+      <view wx:if="{{item.isShowMore}}" class="flex flex-align-center flex-justify-center" style="width:100%;height:60rpx;">
+        <text bindtap="handleClickShowMore" data-id="{{index}}" class="f24 clight-blue">查看更多</text>
+        <image src="/images/icon-arrow-down.png" class="icon-arrow-down" />
+      </view>
+      <view wx:if="{{index !== 2}}" style="width:90%;height:15rpx;background-color:#E8F0F0;margin:10rpx 20rpx;"></view>
+    </view>
+  </view>
+  <view wx:if="{{isShowDetail}}" class="modal flex flex-align-center flex-justify-center">
+    <view class="wrapper flex flex-flow-col-wrap">
+      <view class="f32 c333 flex-self-center margin-top-30">请假原因</view>
+      <view class="f28 margin-top-30 tips">{{details.leave.reason}}</view>
+      <view class="btn-area">
+        <view bindtap="handleClickHideModal" class="btn" style="width:400rpx;">我知道了</view>
+      </view>
+    </view>
+  </view>
+</view>

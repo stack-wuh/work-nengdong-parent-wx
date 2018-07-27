@@ -1,0 +1,35 @@
+<!--pages/news/list/list.wxml-->
+<view class="container1 bg-light">
+  <view class="top margin-btm-15">
+    <view class="search flex flex-align-center flex-justify-between">
+      <view class="input-box">
+        <input bindconfirm="fetchData" bindinput="bindInputValue" adjust-position="{{true}}" type="text" class="my-input" placeholder="请输入关键词搜索" placeholder-class="place" />
+      </view>
+      <view bindtap="fetchData" class="icon-box flex flex-align-center flex-justify-center">
+        <image src="/images/icon-search.png" class="icon-search" />
+      </view>
+    </view>
+    <view class="scroll-box">
+    <scroll-view scroll-x='true' class="my-scroll">
+      <view bindtap="handleChangeType" data-list="asd" class="scroll-item,{{index==0?'item-active':''}}" wx:for="{{navList.list}}" wx:key="{{index}}">{{item.name}}
+        <view wx:if="{{index==0}}" class="border-bottom"></view>
+      </view>
+    </scroll-view>
+    </view>
+
+  </view>
+  <view style="height:180rpx;"></view>
+  <view class="list">
+    <navigator url="/pages/news/detail/detail?index={{index}}" hover-class="none" class="list-item flex" wx:for="{{data}}" wx:key="{{index}}">
+      <view class="margin-rg-10">
+        <image src="{{item.image || '/images/avatar.png'}}" style="width:174rpx;height:120rpx;" />
+      </view>
+      <view class="list-item-right flex-empty flex flex-direct-column flex-justify-between">
+        <view class="c333 f32 text-over" style="width:100%">【{{item.list}}】{{item.title}}</view>
+        <view class="c666 f28 text-over">{{item.abstractt}}</view>
+        <view class="c999 f24">{{item.pubtime}}</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="tips-btm">{{remind}}</view>
+</view>

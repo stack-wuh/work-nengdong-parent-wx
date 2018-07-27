@@ -1,0 +1,24 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="carousle">
+    <swiper class="swiper" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}">
+      <block wx:for="{{3}}" wx:key="{{index}}">
+        <swiper-item bindtap="jump2other" data-index="{{index}}">
+           <image src="/images/swiper-bg.png" class="index-bg" height="347"/>
+           <text class="carousle-title">这里是title哦</text>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="index-list" wx:for="{{menuList}}" wx:key="{{index}}">
+    <view class="list-title">{{item.title}}</view>
+    <view class="list-item-box">
+      <navigator url="{{item.path}}" hover-class="none" class="list-item" wx:for="{{item.list}}" wx:key="{{index}}">
+          <view>
+            <image class="list-img" src="{{item.icon}}" />
+          </view>
+         <view>{{item.name}}</view>
+      </navigator>
+    </view>
+  </view>
+</view>
