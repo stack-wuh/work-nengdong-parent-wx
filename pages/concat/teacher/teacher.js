@@ -15,12 +15,12 @@ Page({
       {
         name:'手机',
         value:'15227272727',
-        prop:'number',
+        prop:'tel',
       },
       {
-        name:'办公电话',
+        name:'紧急联系电话',
         value:'1923-1239123',
-        prop:'tel',
+        prop:'urgencyTel',
       },
       {
         name:'邮箱',
