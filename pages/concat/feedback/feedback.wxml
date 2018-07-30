@@ -1,9 +1,11 @@
 <!--pages/concat/feedback/feedback.wxml-->
 <view class="container1">
+  <form bindsubmit="submit">
   <view class="content">
-    <textarea  placeholder-class="c999 f28" placeholder="请在此输入您要反馈的内容" class="my-textarea"></textarea>
+    <textarea name="content" placeholder-class="c999 f28" placeholder="请在此输入您要反馈的内容" class="my-textarea"></textarea>
   </view> 
   <view class="btn-area">
-    <view class="btn">提交</view>
+    <button form-type="submit" class="btn">提交</button>
   </view>
+  </form>
 </view>
