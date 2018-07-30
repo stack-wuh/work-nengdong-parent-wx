@@ -27,7 +27,10 @@ Page({
     overviewData:{},
     data:[],
     isShowDetail:false,
-    details:{}
+    details:{},
+    data : [{title:'旷到',prop:'cutInfo',data:[],isShowMore:false,style:'background-color:#F28F81;'},
+    {title:'迟到',prop:'lateInfo',data:[],isShowMore:false,style:'background-color:#89A1FF;'},
+    {title:'请假',prop:'leaveInfo',data:[],isShowMore:false,style:'background-color:#6CB6FF;'}] , 
   },
 
   /**
@@ -37,6 +40,12 @@ Page({
     let type = options.type , url = ''
     switch(type){
       case '课程考勤' : url = 'attendance/lessonAttendance.do'
+        break;
+      case '晚点名考勤' : url = 'attendance/nightMention.do'
+        break;
+      case '宿舍考勤' : url = 'attendance/dormAttendance.do'
+        break;
+      case '讲座考勤' : url = 'attendance/meetAttendance.do'
         break;
     }
     wx.setNavigationBarTitle({
@@ -60,10 +69,8 @@ Page({
    */
   fetchData(){
     app.apiPost(this.data.url,this.data.search).then(res=>{
+      console.log(res)
       let signInfo = res.data.signInfo , 
-          data = [{title:'旷到',prop:'cutInfo',data:res.data.cutInfo,isShowMore:false,style:'background-color:#F28F81;'},
-                  {title:'迟到',prop:'lateInfo',data:res.data.lateInfo,isShowMore:false,style:'background-color:#89A1FF;'},
-                  {title:'请假',prop:'leaveInfo',data:res.data.leaveInfo,isShowMore:false,style:'background-color:#6CB6FF;'}] , 
           obj = {signTotal:res.data.signTotal,valid:0,invalid:0,rate:0,out:0,leave:0,later:0}
       signInfo.map(item => {
         if(item.state == 1){
@@ -81,17 +88,13 @@ Page({
         var rate = Number.parseInt((obj.valid / obj.signTotal)*100)
         obj['rate'] = isNaN(rate) ? 0 : rate
       })
-      data.map(item=>{
-        if(item.data.list.length == 2 || item.data.list.length == 10){
-          item.isShowMore = true
-          item.data.list = item.data.list.concat(res.data[item.prop].list)
-        }else{
-          item.isShowMore = false
-        }
+      this.data.data.map(item => {
+        (res.data[item.prop].list.length == 2 || res.data[item.prop].list.length == 10) ? item.isShowMore = true : item.isShowMore = false
+        item.data = item.data.concat(res.data[item.prop].list)
       })
       this.setData({
         overviewData:obj,
-        data:data
+        data:this.data.data,
       })
       this.WxchartInit()
     })

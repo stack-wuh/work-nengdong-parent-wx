@@ -32,9 +32,9 @@
   </view>
   <text class="f28 c666 title">详情列表</text>
   <view class="list">
-    <view wx:for="{{data}}" wx:if="{{item.data.list.length > 0}}" wx:key="{{index}}" class="list-item flex flex-flow-col-wrap">
+    <view wx:for="{{data}}" wx:if="{{item.data.length}}" wx:key="{{index}}" class="list-item flex flex-flow-col-wrap">
       <view class="tips f32 cfff .later" style="{{item.style}}" >{{item.title}}</view>
-      <view class="item-list" style="{{ index == 0 ? 'border-top:none' : ''}}" wx:for="{{item.data.list}}" wx:for-item="list" wx:key="{{index}}">
+      <view class="item-list" style="{{ index == 0 ? 'border-top:none' : ''}}" wx:for="{{item.data}}" wx:for-item="list" wx:key="{{index}}">
         <view class="f24 c999">{{list.fomTime}}</view>
         <view class="flex flex-align-center margin-top-15 item-content">
           <text class="c999 margin-rg-15">课程: </text>

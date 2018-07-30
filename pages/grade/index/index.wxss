@@ -210,6 +210,7 @@
   position: absolute;
   bottom:0;
   left:0;
+  width:690rpx;
 }
 .fourth .btm-box .bg-btm1{
   position: absolute;

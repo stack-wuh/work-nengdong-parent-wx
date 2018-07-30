@@ -109,11 +109,11 @@ Page({
             name:'讲座考勤',
             path:'/pages/check/list/list?type=讲座考勤',
           },
-          {
-            icon:'/images/icon-18.png',
-            name:'其他考勤',
-            path:'/pages/check/list/list?type=其他考勤',
-          },
+          // {
+          //   icon:'/images/icon-18.png',
+          //   name:'其他考勤',
+          //   path:'/pages/check/list/list?type=其他考勤',
+          // },
         ]
       },
       {

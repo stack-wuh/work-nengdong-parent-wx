@@ -19,10 +19,10 @@
     <scroll-view scroll-y class="my-scroll" style="height:{{height+200 || 503}}px;" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-with-animation="{{true}}">
       <view class="first">
         <view class="top flex flex-align-center flex-justify-between">
-          <view class="f28 cfff tips">软件工程1503</view>
-          <picker >
+          <view class="f28 cfff tips">{{info.grade.classes}}</view>
+          <picker bindchange="handlePickerChange" range="{{gradeList}}" >
             <view class="f24 c333 flex flex-align-center my-picker">
-              <text class="margin-rg-10">请选择</text>
+              <text class="margin-rg-10">{{search.semester || '请选择学期'}}</text>
               <text class="tips1">更改</text>
             </view>
           </picker>
@@ -30,41 +30,41 @@
         <view class="flex flex-align-center flex-justify-center bg-img margin-btm-30">
           <image class="bg-list1" src="/images/bg-list1.png"  />
         </view>
-        <view class="f24 text-center margin-btm-30">王嘉尔</view>
+        <view class="f24 text-center margin-btm-30">{{info.grade.name}}</view>
         <view class="my-table flex flex-align-center flex-justify-around margin-btm-30">
           <view>
             <text>平均成绩</text>
-            <text>98</text>
+            <text>{{info.grade.averageScore}}</text>
           </view>
           <view>
             <text>班级排名</text>
-            <text>2</text>
+            <text>{{info.grade.classRank}}</text>
           </view>
           <view>
             <text>年级排名</text>
-            <text>5</text>
+            <text>{{info.grade.gradeRank}}</text>
           </view>
         </view>
         <view id="first" class="nav-title text-center f32 margin-btm-30">成绩详情</view>
-        <view class="list" wx:for="{{4}}">
+        <view class="list" wx:for="{{info.score}}" wx:key="{{index}}">
           <view class="flex flex-align-center margin-btm-30">
-            <text class="f32 title t-color t-bg">大学英语</text>
-            <view>
+            <text class="f32 title t-color t-bg">{{item.className}}</text>
+            <view wx:if="{{!item.isFail}}">
               <image src="/images/icon-sad.png" class="icon-sad" />
             </view>
           </view>
           <view class="my-table flex margin-btm-30">
             <view>
               <text>考试成绩</text>
-              <text>98</text>
+              <text>{{item.score}}</text>
             </view>
             <view>
               <text>所得学分</text>
-              <text>4</text>
+              <text>{{item.credit}}</text>
             </view>
             <view>
               <text>是否及格</text>
-              <text>是</text>
+              <text>{{item.isFail ? '是' : '否'}}</text>
             </view>
           </view>
         </view>
