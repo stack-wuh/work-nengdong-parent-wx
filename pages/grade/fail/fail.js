@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    data:{}
   },
 
   /**
@@ -21,7 +21,10 @@ Page({
    */
   fetchData(){
     app.apiPost('score/getFailScore.do').then(res=>{
-      console.log(res)
+      this.data.data = res.data
+      this.setData({
+        data:this.data.data
+      })
     })
   }
 })

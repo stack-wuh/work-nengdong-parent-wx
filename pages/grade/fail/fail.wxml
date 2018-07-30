@@ -13,28 +13,28 @@
   <view class="list">
     <view class="nav-title">本学年新增</view>
     <view class="item margin-btm-15">
-      <view class="list-item" wx:for="{{2}}">
+      <view class="list-item" wx:for="{{data.nowFail}}" wx:key="{{index}}">
         <view>
           <text class="f24 c999 margin-rg-10">课程名称:</text>
-          <text class="f28 c666">C++程序设计</text>
+          <text class="f28 c666">{{item.className}}</text>
         </view>
         <view>
           <text class="f24 c999 margin-rg-10">考试成绩:</text>
-          <text class="f28 c666">50</text>
+          <text class="f28 c666">{{item.score}}</text>
         </view>
       </view>
     </view>
     <view style="width:90%;height:15rpx;background-color:#E8F0F0;margin:0 auto;margin-bottom:20rpx;"></view>
     <view class="nav-title ">历史记录</view>
     <view class="item margin-btm-15">
-      <view class="list-item" wx:for="{{10}}">
+      <view class="list-item" wx:for="{{data.historyFail}}" wx:key="{{index}}">
         <view>
           <text class="f24 c999 margin-rg-10">课程名称:</text>
-          <text class="f28 c666">C++程序设计</text>
+          <text class="f28 c666">{{item.className}}</text>
         </view>
         <view>
           <text class="f24 c999 margin-rg-10">考试成绩:</text>
-          <text class="f28 c666">50</text>
+          <text class="f28 c666">{{item.score}}</text>
         </view>
         <view>
           <text class="f24 c999 margin-rg-10">考试时间:</text>
