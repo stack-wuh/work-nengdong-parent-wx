@@ -4,11 +4,11 @@
   <view class="content">
     <view class="avatar-wrap">
         <view class="avatar-box">
-          <image src="/images/avatar.png" class="avatar" />
+          <image src="{{ user.wxPic || '/images/avatar.png'}}" class="avatar" />
         </view>
         <view class="avatar-detail flex flex-align-center flex-justify-center">
-          <text class="f28 c333 margin-rg-10">用户名</text>
-          <image src="/images/icon-man.png" class="icon-man" />
+          <text class="f28 c333 margin-rg-10">{{user.name}}</text>
+          <image src="{{user.gender ?'/images/icon-man.png' : '/images/icon-women.png'}}" class="icon-man" />
         </view>
     </view>
     <view class="list">

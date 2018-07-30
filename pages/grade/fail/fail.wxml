@@ -38,7 +38,7 @@
         </view>
         <view>
           <text class="f24 c999 margin-rg-10">考试时间:</text>
-          <text class="f28 c666">大一上学期</text>
+          <text class="f28 c666">{{item.examTime}}</text>
         </view>
       </view>
     </view>  
