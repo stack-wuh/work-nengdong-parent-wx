@@ -1,15 +1,16 @@
 <!--pages/school/map/map.wxml-->
 <view class="container">
   <view class="map-view margin-btm-15">
-    <map id="myMap" style="width:100%;height:200px;"></map>
+    <map id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" style="width:100%;height:200px;"></map>
   </view>
   <view class="list margin-btm-15">
-    <view class="list-item">
+    <view wx:for="{{data}}" wx:key="{{index}}" class="list-item">
       <view class="flex flex-align-center flex-justify-start">
         <image src="/images/icon-bus.png" class="icon-bus" />
         <text class="f32 c333">公共交通</text>
       </view>
-      <view class="f28 c666">这里是路线</view>
+      <import src="/utils/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
     </view>
   </view>
   <view class="list">

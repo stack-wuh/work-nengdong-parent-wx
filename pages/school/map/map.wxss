@@ -1,4 +1,5 @@
 /* pages/school/map/map.wxss */
+@import '/utils/wxParse/wxParse.wxss';
 .container{
   height:100%;
 }
@@ -19,4 +20,8 @@
   padding:30rpx;
   background-color: #fff;
   box-sizing: border-box;
+}
+.list .wxParse-p {
+  margin:15rpx 0;
+  font-size: 28rpx !important;
 }
