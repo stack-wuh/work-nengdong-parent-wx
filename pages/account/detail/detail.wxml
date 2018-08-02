@@ -12,7 +12,7 @@
     <view class="tips-title">
       <view>方法一、扫码关联学生信息</view>
       <view class="btn-area">
-        <view class="btn flex flex-align-center flex-justify-center">
+        <view bindtap="scanCode" class="btn flex flex-align-center flex-justify-center">
           <image src="/images/icon-scan.png" style="width:50rpx;height:50rpx;margin-right:25rpx;" />
           <text>扫一扫</text>
         </view>

@@ -44,6 +44,7 @@ Page({
   data: {
     navList:[],
     type:'',
+    current:0,
     search:{
       currPageNo:1,
       list:'',
@@ -102,7 +103,7 @@ Page({
    bindInputValue(e){
     this.data.search.keyword = e.detail.value
     this.setData({
-      search:this.data.search
+      search:this.data.search,
     })
   },
 
@@ -112,11 +113,12 @@ Page({
   handleChangeType(e){
     this.data.search = {
       list:e.currentTarget.dataset.list,
-      currPageNo:1
+      currPageNo:1,
     }
     this.setData({
       search:this.data.search,
-      data:[]
+      data:[],
+      current:e.currentTarget.dataset.index,
     })
     this.fetchData()
   },

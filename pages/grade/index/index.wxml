@@ -1,6 +1,6 @@
 <!--pages/grade/index/index.wxml-->
 <view class="container1">
-  <view class="header flex flex-align-center flex-justify-between">
+   <view class="header flex flex-align-center flex-justify-between">
     <view data-current='1' data-index="first" bindtap="tap" class="{{current==1?'cactive':''}}">期末成绩
       <view wx:if="{{current == 1}}"></view>
     </view>
@@ -16,7 +16,7 @@
   </view>
   <view style="height:130rpx;"></view>
   <view>
-    <scroll-view scroll-y class="my-scroll" style="height:{{height+200 || 503}}px;" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-with-animation="{{true}}">
+    <scroll-view scroll-y class="my-scroll" style="height:{{height - 80 || 603 - 80}}px;" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-with-animation="{{true}}">
       <view class="first">
         <view class="top flex flex-align-center flex-justify-between">
           <view class="f28 cfff tips">{{info.grade.classes}}</view>
@@ -78,7 +78,7 @@
             <text class="f28 sta-ok">已取得</text>
             <text class="f28 sta-no">暂未取得</text>
           </view>
-          <view class="list-item" wx:for="{{2}}">
+          <view class="list-item" wx:for="{{2}}" wx:key="index">
               <view class="f28 margin-lf-30">教育学</view>
               <view class="my-table flex">
                 <view>
@@ -100,7 +100,7 @@
        <view style="width:647rpx;height:12rpx;background-color:#E8F0F0;margin:0 auto;margin-bottom:30rpx;"></view>
       <view class="nav-title">个人履历</view>
       <view id="third" class="third">
-        <view class="list-item flex flex-flow-col-wrap margin-btm-30" wx:for="{{3}}">
+        <view class="list-item flex flex-flow-col-wrap margin-btm-30" wx:for="{{3}}" wx:key="index">
           <view class="f28 title">奖励记录</view>
           <view>
             <view>
@@ -112,7 +112,21 @@
       </view>
       <view class="nav-title">告家长书</view>
       <view id="fourth" class="fourth">
-        这里是告家长书
+        <view class="article">
+          <view class="header1">
+              <text>尊敬的家长朋友们:</text>
+              <text>您好!</text>
+          </view>
+          <view class="body">
+            <import src="/utils/wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+          </view>
+          <view class="footer">
+            <text>{{letter.teacherName}}</text>
+            <text>计算机学院办</text>
+            <text>{{letter.createTime}}</text>
+          </view>
+        </view>
         <view style="height:300rpx;"></view>
         <view class="btm-box">
           <image src="/images/bg-btm.png" class="bg-btm" />

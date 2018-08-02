@@ -1,5 +1,6 @@
 // pages/grade/index/index.js
 const app = getApp()
+const WxParse = require('../../../utils/wxParse/wxParse')
 Page({
 
   /**
@@ -25,7 +26,8 @@ Page({
     info:{
       grade:{},
       score:[]
-    }
+    },
+    letter:{}
   },
 
   /**
@@ -41,6 +43,7 @@ Page({
       },
     })
     this.getStuGrade()
+    this.getLetterInfo()
   },
 
   /**
@@ -82,6 +85,19 @@ Page({
     this.setData({
       toView:index,
       current:current
+    })
+  },
+
+  /**
+   * 获取告家长书内容
+   */
+  getLetterInfo(){
+    app.apiPost('holidayNotice/getUserSummary.do',this.data.search).then(res=>{
+      var article = res.data.content
+      WxParse.wxParse('article','html',article,this,20)
+      this.setData({
+        letter:res.data
+      })
     })
   }
 })

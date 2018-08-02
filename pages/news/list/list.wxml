@@ -11,12 +11,11 @@
     </view>
     <view class="scroll-box">
     <scroll-view scroll-x='true' class="my-scroll">
-      <view bindtap="handleChangeType" data-list="asd" class="scroll-item,{{index==0?'item-active':''}}" wx:for="{{navList.list}}" wx:key="{{index}}">{{item.name}}
-        <view wx:if="{{index==0}}" class="border-bottom"></view>
+      <view bindtap="handleChangeType" data-list="{{item.value}}" data-index="{{index}}" class="scroll-item,{{index==current?'item-active':''}}" wx:for="{{navList.list}}" wx:key="{{index}}">{{item.name}}
+        <view wx:if="{{index==current}}" class="border-bottom"></view>
       </view>
     </scroll-view>
     </view>
-
   </view>
   <view style="height:180rpx;"></view>
   <view class="list">

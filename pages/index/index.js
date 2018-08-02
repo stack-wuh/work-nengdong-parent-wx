@@ -37,7 +37,7 @@ Page({
           {
             icon:'/images/icon-5.png',
             name:'招生简章',
-            path:'',
+            path:'/pages/school/guide/guide',
           },
           {
             icon:'/images/icon-6.png',
