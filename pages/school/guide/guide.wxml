@@ -1,0 +1,11 @@
+<!--pages/school/guide/guide.wxml-->
+<view class="container1">
+  <view class="header">
+    <text class="title">{{info.title}}</text>
+    <text class="time">{{info.updateTime || info.createTime}}</text>
+  </view>
+  <view class="article">
+    <import src='/utils/wxParse/wxParse.wxml' />
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+  </view>
+</view>

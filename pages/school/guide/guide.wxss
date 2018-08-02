@@ -1,0 +1,25 @@
+/* pages/school/guide/guide.wxss */
+@import '../../../utils/wxParse/wxParse.wxss';
+.container1{
+  height:100%;
+  background-color: #E8F0F0;
+}
+.article{
+  padding:20rpx;
+  font-size: 26rpx;
+}
+.article image{
+  width:100%;
+}
+.header{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding:15rpx 0;
+  font-size: 30rpx;
+}
+.header .time{
+  font-size: 26rpx;
+  color:#999;
+}
