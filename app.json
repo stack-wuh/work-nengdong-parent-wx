@@ -10,6 +10,7 @@
     "pages/news/detail/detail",
     "pages/news/holiday/holiday",
     "pages/school/map/map",
+    "pages/school/guide/guide",
     "pages/check/all/all",
     "pages/check/list/list",
     "pages/grade/index/index",

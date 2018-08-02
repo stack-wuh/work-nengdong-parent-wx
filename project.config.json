@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -152,7 +152,14 @@
 				{
 					"id": -1,
 					"name": "loading",
-					"pathName": "pages/loading/loading/loading"
+					"pathName": "pages/loading/loading/loading",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "招生简章",
+					"pathName": "pages/school/guide/guide",
+					"query": ""
 				}
 			]
 		}

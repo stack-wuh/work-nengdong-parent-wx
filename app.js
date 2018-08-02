@@ -21,6 +21,13 @@ App({
                 data:{openid:res.data.openid},
                 success(res){
                   wx.setStorageSync('sessionId',res.data.data.sessionId);
+                  if(res.data.data.User){
+                    if(!res.data.data.User.schoolNum && !res.data.data.User.studentIdNum && !res.data.data.User.studentName){
+                      wx.navigateTo({
+                        url:'/pages/account/detail/detail'
+                      })
+                    }
+                  }
                 }
               })
 

@@ -225,7 +225,7 @@ page{
   border-bottom:1px solid #eee;
 }
 .form-group .label{
-  flex:.5; 
+  /* flex:.5;  */
 }
 
 /* 图标文件 */
