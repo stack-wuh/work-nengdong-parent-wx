@@ -9,11 +9,11 @@ const list = [
       },
       {
         name:'工会活动',
-        value:''
+        value:'工会活动'
       },
       {
         name:'班级建设',
-        value:''
+        value:'班级建设'
       }
     ]
   },

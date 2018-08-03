@@ -7,7 +7,7 @@
             <image src="{{userInfo.avatarUrl || '/images/avatar.png'}}" class="avatar" />
           </view>
       </view>
-      <view class="list" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="list" wx:for="{{list}}" wx:key="{{index}}" style="{{item.style}}">
         <view class="f32 c333">{{item.title}}</view>
         <view class="list-item f28 c999" wx:for="{{item.list}}" wx:key="{{index}}">
           <text>{{item.name}}:</text>

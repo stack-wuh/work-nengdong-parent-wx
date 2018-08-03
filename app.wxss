@@ -325,3 +325,10 @@ page{
   font-size: 26rpx;
   color: #999;
 }
+.btm-msg{
+  display: block;
+  width:100%;
+  font-size: 26rpx;
+  text-align: center;
+  color: #999;
+}

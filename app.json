@@ -20,6 +20,7 @@
     "pages/grade/recode/recode",
     "pages/concat/teacher/teacher",
     "pages/concat/feedback/feedback",
+    "pages/concat/list/list",
     "pages/loading/loading/loading"
   ],
   "window":{

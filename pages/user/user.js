@@ -44,12 +44,4 @@ Page({
       }
     })
   },
-  /**
-   * 关联账号
-   */
-  concat(){
-    wx.navigateTo({
-      url:'/pages/account/detail/detail'
-    })
-  }
 })

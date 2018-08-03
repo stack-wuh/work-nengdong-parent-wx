@@ -10,7 +10,8 @@ Page({
     data:[],
     search:{
       keyword:''
-    }
+    },
+    remind:'没有更多啦'
   },
 
   /**

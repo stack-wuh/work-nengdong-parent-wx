@@ -32,4 +32,5 @@
       </view>
     </view>
   </view>
+  <view class="btm-msg">{{remind}}</view>
 </view>

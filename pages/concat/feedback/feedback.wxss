@@ -17,3 +17,8 @@
   -o-border-radius: 4rpx;
   box-sizing: border-box;
 }
+.btm-msg{
+  position: fixed;
+  bottom:120rpx;
+  left:0rpx;
+}

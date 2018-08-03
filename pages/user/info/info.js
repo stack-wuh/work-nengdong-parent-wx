@@ -75,7 +75,8 @@ Page({
             value:'',
             prop:'address',
           }
-        ]
+        ],
+        style:'border-top:20rpx solid #e8f0f0;'
       }
     ],
     userInfo:wx.getStorageSync('userInfo')
