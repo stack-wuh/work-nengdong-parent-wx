@@ -27,7 +27,9 @@ Page({
       grade:{},
       score:[]
     },
-    letter:{}
+    letter:{},
+    recode:{},
+    cridet:[]
   },
 
   /**
@@ -44,6 +46,8 @@ Page({
     })
     this.getStuGrade()
     this.getLetterInfo()
+    this.getStudentRecode()
+    this.getStudentCridte()
   },
 
   /**
@@ -97,6 +101,27 @@ Page({
       WxParse.wxParse('article','html',article,this,20)
       this.setData({
         letter:res.data
+      })
+    })
+  },
+  /**
+   * 获取学生个人履历
+   * 
+   */
+  getStudentRecode(){
+    app.apiPost('student/studentPost.do').then(res=>{
+      this.setData({
+        recode:res.data
+      })
+    })
+  },
+  /**
+   * 获取学生等级证书
+   */
+  getStudentCridte(){
+    app.apiPost('certificate/certificateList.do').then(res=>{
+      this.setData({
+        cridet: res.data && res.data.now
       })
     })
   }

@@ -11,32 +11,37 @@
   <view class="list">
     <view class="list-item,{{index==0 ? 'margin-btm-15' : ''}}" wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index" >
       <view class="header f32 cfff margin-btm-10">{{index == 0 ? '放假通知' : '假期安排'}}</view>
-      <block wx:for="{{item}}" wx:for-index="lid" wx:for-item="list" wx:key="{{index}}">
+      <block  wx:for="{{item}}" wx:for-index="lid" wx:for-item="list" wx:key="{{index}}">
+        <view data-id="{{list.id}}" bindtap="handleClickGetDetail">
         <view class="item-title f32 c333">{{list.title}}</view>
         <view class="item-content f28 c666 textarea-over margin-top-5 margin-btm-5">
           <import src="/utils/wxParse/wxParse.wxml" />
           <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
         </view>
+        </view>
         <view class="f24 c999">{{list.createTime}}</view>
-        <view wx:if="{{index == 0}}" style="height:15rpx;margin:30rpx 0;background-color:#E8F0F0;"></view>
+        <view style="height:15rpx;margin:30rpx 0;background-color:#E8F0F0;"></view>
       </block>
+      <block wx:if="{{index == 0 ? search1.isShowMore : search2.isShowMore}}">
       <view class="flex flex-align-center flex-justify-center margin-btm-10 margin-top-30">
         <text bindtap="handleShowMore" data-type="{{index}}" class="f24 clight-blue ">查看更多</text>
         <image src="/images/icon-arrow-down.png" class="icon-arrow-down" />
       </view>
+      </block>
     </view>
   </view>
-  <!-- <view class="modal flex flex-align-center flex-justify-center">
+  <view wx:if="{{isShowDetail}}" class="modal flex flex-align-center flex-justify-center">
     <view class="wrapper">
       <view class="top flex flex-flow-col-wrap">
-        <image src="/images/icon-cancel.png" class="icon-cancel flex-self-end" />
-        <view class="f32 c333 margin-btm-5 textarea-over">2018年暑假放假通知2018年暑假放假通知</view>
-        <view class="f24 c999">2018年7月17日 12:12:11</view>
+        <image bindtap="handleClickHideModalWithClear" src="/images/icon-cancel.png" class="icon-cancel flex-self-end" />
+        <view class="f32 c333 margin-btm-5 textarea-over">{{info.title}}</view>
+        <view class="f24 c999">{{info.createTime}}</view>
       </view>
       <view class="cutline"></view>
-      <view>
-        这里是富文本编辑器的内容
+      <view class="article">
+          <import src="/utils/wxParse/wxParse.wxml" />
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
       </view>
     </view>
-  </view> -->
+  </view>
 </view>

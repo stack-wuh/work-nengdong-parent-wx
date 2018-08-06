@@ -19,7 +19,7 @@
         <image src="/images/icon-car.png" class="icon-bus" />
         <text class="f32 c333">自驾</text>
       </view>
-      <view class="f28 c666">这里是路线</view>
+      <view class="f28 c666">暂未上线</view>
     </view>
   </view>
 </view>

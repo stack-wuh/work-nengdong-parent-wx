@@ -53,6 +53,7 @@ Page({
     data:[],
     remind:'没有更多啦',
     isShowMore:false,
+    list:list
   },
 
   /**
@@ -63,12 +64,13 @@ Page({
     wx.setNavigationBarTitle({
       title:type,
     })
-    const obj = list.find(item => item.title == type)
+    const obj = this.data.list.find(item => item.title == type)
     this.setData({
       navList:obj,
       type:type
     })
     this.fetchData()
+    this.getTypesList(type)
   }, 
 
   /**
@@ -134,5 +136,25 @@ Page({
       })
       this.fetchData()
     }
+   },
+
+   /**
+    * 获取新闻类型列表
+    */
+   getTypesList(type){
+    let url = type === '新闻速递' ? 'news/getArticleType.do' : 'news/getNoticeType.do'
+     app.apiPost(url).then(res=>{
+        let data = res.data
+        this.data.list.map(item => {
+          (item.title == type) && (item.list = data.map(item =>{ return {name:item,value:item} }))
+        })
+        this.setData({
+          list:this.data.list
+        })
+        const obj = this.data.list.find(item => item.title == type)
+        this.setData({
+          navList:obj,
+        })
+     })
    },
 })

@@ -65,11 +65,21 @@
   right:0;
   bottom:0;
   background-color: rgba(0,0,0,.5);
+  z-index: 10000 ;
 }
 .modal .wrapper{
   width:690rpx;
-  height:100%;
-  padding:20rpx; 
+  height:90%;
+  padding:20rpx;
+  border-radius:4rpx;
   background-color: #fff;
   box-sizing: border-box;
+  -webkit-border-radius:4rpx;
+  -moz-border-radius:4rpx;
+  -ms-border-radius:4rpx;
+  -o-border-radius:4rpx;
+}
+.modal .wrapper .article{
+  height: 90%;
+  overflow-y: scroll;
 }

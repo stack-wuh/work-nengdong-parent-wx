@@ -2,22 +2,20 @@
 <view class="container1">
   <view class="header">
     <view>
-        <view class="active">奖励记录</view>
-        <view>惩罚记录</view>
+        <view data-type="0" bindtap="handleClickChange" class="{{current == 0 ? 'active' : ''}}">奖励记录</view>
+        <view data-type="1" bindtap="handleClickChange" class="{{current == 1 ? 'active' : ''}}">惩罚记录</view>
     </view>
   </view>
   <view style="height:100rpx;"></view>
-  <block wx:if="{{false}}">
+  <block wx:if="{{current == 0}}">
     <view class="content">
       <view class="list">
         <view class="item">
           <view class="item-title f32 c333 margin-btm-30">奖学金</view>
           <view class="list-item flex flex-flow-col-wrap">
-            <view class="flex flex-align-center  list-detail" wx:for="{{3}}" wx:key="{{index}}">
+            <view class="flex flex-align-center  list-detail" wx:for="{{ data && data.burseList}}" wx:key="{{index}}">
               <image src="/images/icon-22.png" class="icon-tips1" />
               <text class="f28 c666">2018国家级一等奖学金</text>
-              <text class="flex-empty"></text>
-              <text class="f28 c666">5000元</text>
             </view>
           </view>
           <view style="width:100%;height:12rpx;background-color:#e8f0f0;"></view>
@@ -38,8 +36,6 @@
             <view class="flex flex-align-center  list-detail" wx:for="{{3}}" wx:key="{{index}}">
               <image src="/images/icon-24.png" class="icon-tips2" />
               <text class="f28 c666">2018国家级一等奖学金</text>
-              <text class="flex-empty"></text>
-              <text class="f28 c666">5000元</text>
             </view>
           </view>
           <view style="width:100%;height:12rpx;background-color:#e8f0f0;"></view>
@@ -57,14 +53,14 @@
         <view class="item1 item">
           <view class="item-title f32 c333 margin-btm-30">论文发表</view>
           <view class="list-item flex flex-flow-col-wrap">
-            <view class="flex flex-flow-col-wrap list-detail" wx:for="{{3}}" wx:key="{{index}}">
+            <view class="flex flex-flow-col-wrap list-detail" wx:for="{{data.thesisList}}" wx:key="{{index}}">
               <view>
                 <image src="/images/icon-22.png" class="icon-tips1" />
-                <text class="f28 c666">2018国家级一等奖学金</text>
+                <text class="f28 c666">{{item.title}}</text>
               </view>
               <view>
                 <text class="f24 c999">期刊名称:</text>
-                <text class="f28 c666">《国家地理》</text>
+                <text class="f28 c666">{{item.journal}}</text>
               </view>
               <view>
                 <text class="f24 c999">期刊等级:</text>
@@ -72,7 +68,7 @@
               </view>
               <view>
                 <text class="f24 c999">发表时间:</text>
-                <text class="f28 c666">2018年7月13日</text>
+                <text class="f28 c666">{{item.pubtime}}</text>
               </view>
             </view>
           </view>
@@ -80,16 +76,16 @@
       </view>
     </view>
   </block>
-  <block wx:if="{{true}}">
+  <block wx:if="{{current == 1}}">
     <view class="content">
       <view class="list">
-        <view class="item item2" wx:for="{{3}}" wx:key="{{index}}">
+        <view class="item item2" wx:for="{{data}}" wx:key="{{index}}">
           <view class="flex flex-align-center flex-justify-between">
-            <text class="f32 c333">记大过一次</text>
-            <text class="f24 c999">2018年9月12日</text>
+            <text class="f32 c333">记{{item.type}}一次</text>
+            <text class="f24 c999">{{item.year}}</text>
           </view>
           <view class="f32 c999 margin-top-20 margin-btm-20">情况说明: </view>
-          <view class="text-detail f28 c666 margin-btm-30">惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因惩处原因</view>
+          <view class="text-detail f28 c666 margin-btm-30">{{item.info}}</view>
           <view wx:if="{{index !== 2}}" style="width:100%;height:1px;background-color:#E8F0F0;"></view>
         </view>
       </view>

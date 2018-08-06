@@ -8,14 +8,20 @@ Page({
    */
   data: {
     data:[[],[]],
+    temp_data1:[],
+    temp_data2:[],
     search1:{
       type:0,
       currPageNo:1,
+      isShowMore:false,
     },
     search2:{
       type:1,
-      currPageNo:1
-    }
+      currPageNo:1,
+      isShowMore:false,
+    },
+    isShowDetail:false,
+    info:{}
   },
 
   /**
@@ -31,15 +37,30 @@ Page({
    */
   getHolidayNodes(){
     app.apiPost('holidayNotice/getNoticeList.do',this.data.search1).then(res=>{
-      this.data.data[0] = res.data.list
-      this.data.data[0] && this.data.data[0].map(item => {
+      let data = res.data.list
+      data.map(item => {
         var article = item.content
         WxParse.wxParse('article','html',article,this,20)
       })
       this.setData({
-        data:this.data.data
+        temp_data1:data
       })
-      console.log(this.data)
+      if(this.data.search1.currPageNo == 1){
+        let arr = data.slice(0,2)
+        if(data.length > 2){
+          this.data.search1.isShowMore = true
+        }else{
+          this.data.search1.isShowMore = false
+        }
+        this.data.data[0] = arr
+      }else{
+        this.data.data[0] = this.data.data[0].concat(data)
+        this.data.search1.isShowMore = data.length == 10 ?true : false
+      }
+      this.setData({
+        data:this.data.data,
+        search1:this.data.search1
+      })
     })
   },
 
@@ -48,15 +69,30 @@ Page({
    */
   getHolidayHelps(){
     app.apiPost('holidayNotice/getNoticeList.do',this.data.search2).then(res=>{
-      this.data.data[1] = res.data.list
-      this.data.data[1] && this.data.data[1].map(item => {
+      let data = res.data.list
+      data.map(item => {
         var article = item.content
         WxParse.wxParse('article','html',article,this,20)
       })
       this.setData({
-        data:this.data.data
+        temp_data2:data
       })
-      console.log(this.data)
+      if(this.data.search2.currPageNo == 1){
+        let arr = data.slice(0,2)
+        if(data.length > 2){
+          this.data.search2.isShowMore = true
+        }else{
+          this.data.search2.isShowMore = false
+        }
+        this.data.data[1] = arr
+      }else{
+        this.data.data[1] = this.data.data[0].concat(data)
+        this.data.search2.isShowMore = data.length == 10 ?true : false
+      }
+      this.setData({
+        data:this.data.data,
+        search2:this.data.search2
+      })
     })
   },
 
@@ -70,20 +106,75 @@ Page({
       search1:this.data.search1,
       search2:this.data.search2
     })
-    console.log(this.data)
   },
 
+  /**
+   * 单击列表显示详情
+   */
+  handleClickGetDetail(e){
+    let id = e.currentTarget.dataset.id
+    app.apiPost('holidayNotice/getNoticeInfo.do',{id}).then(res=>{
+      let article = res.data && res.data.content
+      WxParse.wxParse('article','html',article,this,20)
+      this.data.info = res.data
+      this.setData({
+        isShowDetail:true,
+        info:this.data.info
+      })
+    })
+  },
+  /**
+   * 单击隐藏详情并清除
+   */
+  handleClickHideModalWithClear(){
+    this.setData({
+      isShowDetail:false,
+      info:{}
+    })
+  },
   /**
    * 点击获取更多
    */
   handleShowMore(e){
     let type = e.currentTarget.dataset.type
     if(type == 0){
-      this.data.search1.currPageNo ++
-      this.setData({
-        search1:this.data.search1
-      }) 
-      this.getHolidayNodes()
+      if(this.data.search1.currPageNo == 1 && this.data.search1.isShowMore ){
+        this.data.data[0] = this.data.temp_data1
+        if(this.data.data[0].length ==10){
+          this.data.search1.isShowMore = true
+        }else{
+          this.data.search1.isShowMore = false
+        }
+        this.setData({
+          data:this.data.data,
+          search1:this.data.search1
+        })
+      }else{
+        this.data.search1.currPageNo ++ 
+        this.setData({
+          search1:this.data.search1
+        })
+        this.getHolidayNodes()
+      }
+    }else if(type ==1){
+      if(this.data.search2.currPageNo == 1 && this.data.search2.isShowMore ){
+        this.data.data[1] = this.data.temp_data2
+        if(this.data.data[1].length ==10){
+          this.data.search2.isShowMore = true
+        }else{
+          this.data.search2.isShowMore = false
+        }
+        this.setData({
+          data:this.data.data,
+          search2:this.data.search2
+        })
+      }else{
+        this.data.search2.currPageNo ++ 
+        this.setData({
+          search2:this.data.search2
+        })
+        this.getHolidayHelps()
+      } 
     }
   }
 
