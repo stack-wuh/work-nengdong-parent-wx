@@ -30,7 +30,6 @@ App({
                   }
                 }
               })
-
             }
           })
           if(userInfo){
@@ -64,6 +63,8 @@ App({
         }
       }
     })
+
+    
   },
   globalData: {
     userInfo: null
