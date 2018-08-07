@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index/detail/detail",
     "pages/company/company",
     "pages/user/user",
     "pages/user/info/info",
