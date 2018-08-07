@@ -1,0 +1,11 @@
+<!--pages/index/detail/detail.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="f32 c333">{{info.title}}</text>
+    <text class="f28 c666">{{info.abstractt}}</text>
+  </view>
+  <view class="f32">
+    <import src="../../../utils/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" ></template>
+  </view>
+</view>
