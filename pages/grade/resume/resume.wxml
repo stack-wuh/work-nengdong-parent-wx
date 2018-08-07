@@ -3,7 +3,7 @@
   <view wx:for="{{data}}" wx:key="{{index}}">
     <view class="title">
       <text class="f32 c333 margin-rg-80">{{item.year}}</text>
-      <text class="f32 c333">{{item.post}}</text>
+      <text class="f32 c333">{{item.department}}</text>
     </view>
     <view class="content" style="padding-bottom:30rpx;padding-top:20rpx;">
       <view class="f24 c999">工作内容</view>

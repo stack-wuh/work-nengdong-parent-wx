@@ -37,15 +37,15 @@
       <view class="item-list" style="{{ index == 0 ? 'border-top:none' : ''}}" wx:for="{{item.data}}" wx:for-item="list" wx:key="{{index}}">
         <view class="f24 c999">{{list.fomTime}}</view>
         <view class="flex flex-align-center margin-top-15 item-content">
-          <text class="c999 margin-rg-15">课程: </text>
-          <text>{{list.title}}</text>
+          <text class="c999 margin-rg-15">{{title}}</text>
+          <text>{{list.title || ''}}</text>
           <text style="flex:.8;"></text>
           <text class="c999 margin-rg-15">发起签到: </text>
           <text>{{list.teacherName}}</text>
         </view>
         <view wx:if="{{item.title == '请假'}}" class="flex flex-align-center item-btm margin-top-10">
           <text class="c999 margin-rg-15">原因:</text>
-          <text class="text-over detail">{{list.leave.reason}}</text>
+          <text class="text-over detail">{{list.leave.reason || ''}}</text>
           <block wx:if="{{list.leave.reason.length > 20}}">
             <text data-info="{{list}}" bindtap="handleClickChangeDetail" class="btm-btn margin-rg-10">查看详情</text>
             <image src="/images/icon-arrow-right-yellow.png" class="icon-arrow-right-yellow" />

@@ -6,47 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    data:[
-      [
-        {
-          name:'英语四级证书',
-          isPass:true,
-          list:[
-            {
-              name:'教育学',
-              max:100,
-              line:60,
-              isPass:true
-            },
-            {
-              name:'教育学1',
-              max:100,
-              line:60,
-              isPass:true
-            }
-          ]
-        }
-      ],
-      [
-        {
-          name:'英语三级证书',
-          isPass:true,
-          list:[
-            {
-              name:'教育学',
-              max:100,
-              line:60,
-              isPass:true
-            },
-            {
-              name:'教育学1',
-              max:100,
-              line:60,
-              isPass:true
-            }
-          ]
-        }
-      ],
+    data: [
+      {
+        title: 'his',
+        list: []
+      },
+      {
+        title: 'now',
+        list: []
+      },
     ]
   },
 
@@ -57,9 +25,18 @@ Page({
     this.fetchData()
   },
 
-  fetchData(){
-    app.apiPost('certificate/certificateList.do',{type:'now'}).then(res=>{
-
+  fetchData() {
+    app.apiPost('certificate/certificateList.do').then(res => {
+      this.data.data.map(item => {
+        for(var k in res.data){
+          if(item.title == k){
+            item.list = res.data[k]
+          }
+        }
+      })
+      this.setData({
+        data:this.data.data
+      })
     })
   }
 })

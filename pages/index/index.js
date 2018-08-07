@@ -1,10 +1,12 @@
 // pages/index/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    list:[],
     menuList:[
       {
         title:'新闻中心',
@@ -143,8 +145,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.fetchData()
+
   },
-
-
+  fetchData(){
+    app.apiPost('news/queryBanner.do').then(res=>{
+      this.setData({
+        list:res.data
+      })
+    })
+  },
+  jump2other(e){
+    let index = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url:'/pages/index/detail/detail?index=' + index
+    })
+  }
 })

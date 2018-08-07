@@ -72,22 +72,37 @@
       <view style="width:647rpx;height:12rpx;background-color:#E8F0F0;margin:0 auto;margin-bottom:30rpx;"></view>
       <view class="nav-title">等级证书</view>
       <view id="second" class="second">
-        <view class="list" wx:for="{{3}}" wx:key="{{index}}">
+        <view class="list" wx:for="{{cridet}}" wx:key="{{index}}">
           <view class="flex flex-align-center margin-top-30 margin-btm-30">
-            <text class="f32 title">英语四级证书</text>
-            <text class="f28 sta-ok">已取得</text>
-            <text class="f28 sta-no">暂未取得</text>
+            <text class="f32 title">{{item.name}}</text>
+            <text class="f28 {{item.hasSub ? 'sta-ok' : 'sta-no'}}">{{item.hasSub ? '已取得' : '暂未取得'}}</text>
           </view>
-          <view class="list-item" wx:for="{{2}}" wx:key="index">
-              <view class="f28 margin-lf-30">教育学</view>
+          <view class="list-item" wx:if="{{item.studentCertificateSub.length == 0}}">
+            <view class="my-table flex">
+                <view>
+                  <text>考试成绩</text>
+                  <text>{{item.score}}</text>
+                </view>
+                <view>
+                  <text>及格分</text>
+                  <text>{{item.passScore}}</text>
+                </view>
+                <view>
+                  <text>是否及格</text>
+                  <text>{{item.hasSub ? '是' : '否'}}</text>
+                </view>
+            </view>
+          </view>
+          <view wx:if="{{item.studentCertificateSub.length > 0}}" class="list-item" wx:for-item="list" wx:for="{{item.studentCertificateSub}}" wx:key="index">
+              <view class="f28 margin-lf-30">{{list.name}}</view>
               <view class="my-table flex">
                 <view>
                   <text>考试成绩</text>
-                  <text>98</text>
+                  <text>{{list.score}}</text>
                 </view>
                 <view>
-                  <text>所得学分</text>
-                  <text>4</text>
+                  <text>及格分</text>
+                  <text>{{list.passScore}}</text>
                 </view>
                 <view>
                   <text>是否及格</text>
@@ -97,21 +112,41 @@
           </view>
         </view>
       </view>
-       <view style="width:647rpx;height:12rpx;background-color:#E8F0F0;margin:0 auto;margin-bottom:30rpx;"></view>
+       <view style="width:647rpx;height:12rpx;background-color:#E8F0F0;margin:0 auto;margin-top:30rpx;margin-bottom:30rpx;"></view>
       <view class="nav-title">个人履历</view>
       <view id="third" class="third">
-        <view class="list-item flex flex-flow-col-wrap margin-btm-30" wx:for="{{3}}" wx:key="index">
-          <view class="f28 title">奖励记录</view>
-          <view>
+        <view class="list-item flex flex-flow-col-wrap margin-btm-30" wx:for="{{recode}}" wx:key="index">
+          <view class="f28 title">{{item.title}}</view>
+          <block wx:if="{{item.title == '惩罚记录'}}" wx:for="{{item.list}}" wx:key="{{index}}" wx:for-item="list" >
             <view>
-              <text class="c999 f28">原因:</text>
-              <text class="f28 c999">这里就是原因</text>
+              <view>
+                <text class="c999 f28">类型:</text>
+                <text class="f28 c999">{{list.type}}</text>
+              </view>
+              <view>
+                <text class="c999 f28">时间:</text>
+                <text class="f28 c999">{{list.time}}</text>
+              </view>
+              <view>
+                <text class="c999 f28">原因:</text>
+                <text class="f28 c999">{{list.info}}</text>
+              </view>
             </view>
-          </view>
+          </block>
+          <block wx:if="{{item.title == '任职情况'}}">
+            <view wx:for="{{item.list}}" wx:key="{{index}}" wx:for-item="list">
+              <text class="f28 c999">{{list.year}} -- {{list.department}} -- {{list.content}}</text>
+            </view>
+          </block>
+          <block wx:if="{{item.title == '奖励情况'}}">
+            <view wx:for="{{item.list}}" wx:key="{{index}}" wx:for-item="list">
+              <text class="f28 c999">{{list}}</text>
+            </view>
+          </block>          
         </view>
       </view>
       <view class="nav-title">告家长书</view>
-      <view id="fourth" class="fourth">
+      <view id="fourth" class="fourth" style="font-family:my-font;font-size:80px;">
         <view class="article">
           <view class="header1">
               <text>尊敬的家长朋友们:</text>

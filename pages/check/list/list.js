@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    title:'', // navBar-title
     url:'', // 请求地址
     search:{ // 请求参数
       semester:'大三下学期', //学期
@@ -52,7 +53,8 @@ Page({
       title:type
     })
     this.setData({
-      url:url
+      url:url,
+      title:type
     })
     this.fetchData()
   },
@@ -69,7 +71,6 @@ Page({
    */
   fetchData(){
     app.apiPost(this.data.url,this.data.search).then(res=>{
-      console.log(res)
       let signInfo = res.data.signInfo , 
           obj = {signTotal:res.data.signTotal,valid:0,invalid:0,rate:0,out:0,leave:0,later:0}
       signInfo.map(item => {

@@ -1,86 +1,53 @@
 <!--pages/grade/grading/grading.wxml-->
 <view class="container1">
-  <!-- <view class="nav-title">本学年新增</view>
-  <view class="list" wx:for="{{2}}">
-    <view class="list-top">
-      <text class="f28 c666 margin-rg-10">英语四级证书</text>
-      <text class="f24 sta-ok">已获得</text>
-      <text class="f24 sta-no">暂未获得</text>
-    </view>
-    <view class="list-item">
-      <view class="item" wx:for="{{3}}">
-        <view class="f28 c333">教育学</view>
-        <view class="my-table">
-          <view>
-            <text>最高分</text>
-            <text>100</text>
-          </view>
-          <view>
-            <text>及格分</text>
-            <text>100</text>
-          </view>    
-          <view>
-            <text>是否通过</text>
-            <text>是</text>
-          </view>            
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="nav-title">历史记录</view>
-    <view class="list" wx:for="{{2}}">
-      <view class="list-top">
-        <text class="f28 c666 margin-rg-10">英语四级证书</text>
-        <text class="f24 sta-ok">已获得</text>
-        <text class="f24 sta-no">暂未获得</text>
-      </view>
-      <view class="list-item">
-        <view class="item" wx:for="{{3}}">
-          <view class="f28 c333">教育学</view>
-          <view class="my-table">
-            <view>
-              <text>最高分</text>
-              <text>100</text>
-            </view>
-            <view>
-              <text>及格分</text>
-              <text>100</text>
-            </view>    
-            <view>
-              <text>是否通过</text>
-              <text>是</text>
-            </view>            
-          </view>
-        </view>
-      </view>
-  </view> -->
   <block wx:for="{{data}}" wx:key="{{index}}">
-    <view class="nav-title">{{index == 0 ? '本学年新增' : '历史记录'}}</view>
-    <view class="list" wx:for="{{item}}" wx:for-item="list" wx:key="index">
+    <view wx:if="{{item.list.length}}" class="nav-title">{{item.title == 'now' ? '本学年新增' : '历史记录'}}</view>
+    <view class="list" wx:for="{{item.list}}" wx:for-item="list" wx:key="index">
       <view class="list-top">
         <text class="f28 c666 margin-rg-10">{{list.name}}</text>
-        <text class="f24 sta-ok">已获得</text>
-        <text class="f24 sta-no">暂未获得</text>
+        <text class="f24 {{list.hasSub ? 'sta-ok' : 'sta-no'}}">{{list.hasSub ? '已获得' : '暂未获得'}}</text>
       </view>
-      <view class="list-item">
-        <view class="item" wx:for="{{list.list}}" wx:for-item="sub" wx:key="{{index}}">
-          <view class="f28 c333">{{sub.name}}</view>
-          <view class="my-table">
-            <view>
-              <text>最高分</text>
-              <text>{{sub.max}}</text>
+      <block wx:if="{{list.studentCertificateSub.length == 0}}">
+        <view class="list-item">
+          <view class="item">
+            <view class="my-table">
+              <view>
+                <text>得分</text>
+                <text>{{list.score}}</text>
+              </view>
+              <view>
+                <text>及格分</text>
+                <text>{{list.passScore}}</text>
+              </view>    
+              <view>
+                <text>是否通过</text>
+                <text>{{list.hasSub ? '通过' : '未通过'}}</text>
+              </view>            
             </view>
-            <view>
-              <text>及格分</text>
-              <text>{{sub.line}}</text>
-            </view>    
-            <view>
-              <text>是否通过</text>
-              <text>{{sub.isPass}}</text>
-            </view>            
           </view>
         </view>
-      </view>
+      </block>
+      <block wx:if="{{list.studentCertificateSub.length > 0}}" wx:for="{{list.studentCertificateSub}}" wx:key="{{index}}" wx:for-item="sub">
+        <view class="list-item">
+          <text class="f28 c666">{{sub.name}}</text>
+          <view class="item">
+            <view class="my-table">
+              <view>
+                <text>得分</text>
+                <text>{{sub.score}}</text>
+              </view>
+              <view>
+                <text>及格分</text>
+                <text>{{sub.passScore}}</text>
+              </view>    
+              <view>
+                <text>是否通过</text>
+                <text>{{sub.hasSub ? '通过' : '未通过'}}</text>
+              </view>            
+            </view>
+          </view>
+        </view>
+      </block>
     </view>
   </block>
 </view>

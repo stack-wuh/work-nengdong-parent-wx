@@ -28,7 +28,7 @@ Page({
       score:[]
     },
     letter:{},
-    recode:{},
+    recode:[],
     cridet:[]
   },
 
@@ -43,6 +43,21 @@ Page({
           height:e.windowHeight
         })
       },
+    })
+    wx.loadFontFace({
+      family:'my-font',
+      source:"url('https://pc3b73iy4.bkt.clouddn.com/FZJLJW--GB1-0.ttf')",
+      desc:{
+        style:'normal',
+        weight:'normal',
+        variant:'normal',
+      },
+      success(res){
+        console.log(res)
+      },
+      fail(err){
+        console.log(err)
+      }
     })
     this.getStuGrade()
     this.getLetterInfo()
@@ -110,8 +125,17 @@ Page({
    */
   getStudentRecode(){
     app.apiPost('student/studentPost.do').then(res=>{
+      let {punishList , recordList , ...list }  = res.data
+      let arr = []
+      for(var k in list){
+        var newArr = list[k].map(item => {
+          return item.rank
+        }).toString()
+        arr.push(newArr)
+      }
+      this.data.recode.push({title:'惩罚记录',list:punishList},{title:'任职情况',list:recordList},{title:'奖励情况',list:arr})
       this.setData({
-        recode:res.data
+        recode:this.data.recode
       })
     })
   },
@@ -121,7 +145,7 @@ Page({
   getStudentCridte(){
     app.apiPost('certificate/certificateList.do').then(res=>{
       this.setData({
-        cridet: res.data && res.data.now
+        cridet: res.data && res.data.his
       })
     })
   }

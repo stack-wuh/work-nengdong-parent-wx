@@ -1,11 +1,11 @@
 <!--pages/index/index.wxml-->
-<view class="container">
+<view class="container1">
   <view class="carousle">
     <swiper class="swiper" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}">
-      <block wx:for="{{3}}" wx:key="{{index}}">
+      <block wx:for="{{list}}" wx:key="{{index}}">
         <swiper-item bindtap="jump2other" data-index="{{index}}">
            <image src="/images/swiper-bg.png" class="index-bg" height="347"/>
-           <text class="carousle-title">这里是title哦</text>
+           <text class="carousle-title">{{item.title}}</text>
         </swiper-item>
       </block>
     </swiper>
