@@ -1,20 +1,20 @@
 <!--pages/concat/list/list.wxml-->
 <view class="container1 bg-light">
   <view class="list">
-    <view class="list-item" wx:for="{{3}}" wx:key="{{index}}">
+    <view class="list-item" wx:for="{{list}}" wx:key="{{index}}">
       <view class="header c999 f28">
         <text class="title">我的意见反馈</text>
-        <text class="margin-lf-30">2018-08-03 13:00</text>
+        <text class="margin-lf-30">{{item.feedTime}}</text>
       </view>
       <view class="content margin-btm-15 f30">
-        this is conttent
+        {{item.feedContent || ''}}
       </view>
       <view class="sub-title f28 c999">
-        <text>来自教师端的回复</text>
-        <text>2018-08-03 12:00</text>
+        <text>来自教师{{item.replyTeacher || '端'}}的回复</text>
+        <text>{{item.replyTime}}</text>
       </view>
-      <view class="content">
-        this is feed context
+      <view class="content" wx:if="{{item.replyContent}}">
+        {{item.replyContent || ''}}
       </view>
     </view>
   </view>
